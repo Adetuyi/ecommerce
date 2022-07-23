@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { XIcon } from '@heroicons/react/solid';
 import { actions } from '../utils/actions/Store';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 
 const CartScreen = () => {
 	const { state, dispatch } = useContext(StoreContext);
@@ -97,4 +98,4 @@ const CartScreen = () => {
 	);
 };
 
-export default CartScreen;
+export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });

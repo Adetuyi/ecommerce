@@ -1,16 +1,22 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { routes } from '../utils/routes';
 import { StoreContext } from '../utils/contexts/Store';
 
 const Layout = ({ title, children }) => {
 	const { state } = useContext(StoreContext);
 	const { cart } = state;
+	const [cartItemsCount, setCartItemsCount] = useState(0);
+
+	useEffect(() => {
+		setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
+	}, [cart.cartItems]);
+
 	return (
 		<>
 			<Head>
-				<title>{title ? title + '- Amazona' : 'Amazona'}</title>
+				<title>{title ? title + ' - Amazona' : 'Amazona'}</title>
 				<meta name="description" content="Ecommerce website" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
@@ -25,9 +31,9 @@ const Layout = ({ title, children }) => {
 							<Link href={routes.cart}>
 								<a className="p-2">
 									Cart
-									{cart.cartItems.length > 0 ? (
+									{cartItemsCount > 0 ? (
 										<span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
-											{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+											{cartItemsCount}
 										</span>
 									) : null}
 								</a>
