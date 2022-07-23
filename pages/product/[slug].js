@@ -5,8 +5,8 @@ import { routes } from '../../utils/routes';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useContext } from 'react';
-import { StoreContext } from '../../utils/Store';
-import { actions } from '../../utils/actions/StoreContext';
+import { StoreContext } from '../../utils/contexts/Store';
+import { actions } from '../../utils/actions/Store';
 
 const ProductPage = () => {
 	const { state, dispatch } = useContext(StoreContext);

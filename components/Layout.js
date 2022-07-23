@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { routes } from '../utils/routes';
-import { StoreContext } from '../utils/Store';
+import { StoreContext } from '../utils/contexts/Store';
 
 const Layout = ({ title, children }) => {
 	const { state } = useContext(StoreContext);
@@ -26,7 +26,9 @@ const Layout = ({ title, children }) => {
 								<a className="p-2">
 									Cart
 									{cart.cartItems.length > 0 ? (
-										<span className='ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white'>{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}</span>
+										<span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+											{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+										</span>
 									) : null}
 								</a>
 							</Link>

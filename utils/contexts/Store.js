@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react';
-import { actions } from './actions/StoreContext';
+import { actions } from '../actions/Store';
 
 export const StoreContext = createContext();
 
