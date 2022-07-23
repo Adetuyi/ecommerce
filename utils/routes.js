@@ -3,4 +3,5 @@ export const routes = {
 	cart: '/cart',
 	login: '/login',
 	product: '/product',
+	shipping: '/shipping',
 };

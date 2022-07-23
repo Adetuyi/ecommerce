@@ -5,3 +5,4 @@
 - Nextjs
 - Tailwindcss
 - @types/react
+- @heroicons/react
