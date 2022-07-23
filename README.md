@@ -4,3 +4,4 @@
 
 - Nextjs
 - Tailwindcss
+- @types/react
