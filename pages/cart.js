@@ -18,6 +18,10 @@ const CartScreen = () => {
 	const removeItemHandler = (item) => {
 		dispatch({ type: actions.REMOVE_CART, payload: item });
 	};
+	const updateCartHandler = (item, qty) => {
+		const quantity = Number(qty);
+		dispatch({ type: actions.ADD_CART, payload: { ...item, quantity } });
+	};
 	return (
 		<Layout title="Shopping Cart">
 			<h1 className="mb-4 text-xl">Shopping Cart</h1>
@@ -48,7 +52,19 @@ const CartScreen = () => {
 												</a>
 											</Link>
 										</td>
-										<td className="p-5 text-right">{item.quantity}</td>
+										<td className="p-5 text-right">
+											<select
+												className="bg-white"
+												value={item.quantity}
+												onChange={(e) => updateCartHandler(item, e.target.value)}
+											>
+												{[...Array(item.countInStock).keys()].map((x) => (
+													<option key={x + 1} value={x + 1}>
+														{x + 1}
+													</option>
+												))}
+											</select>
+										</td>
 										<td className="p-5 text-right">${item.price}</td>
 										<td className="p-5 text-center">
 											<button onClick={() => removeItemHandler(item)}>
