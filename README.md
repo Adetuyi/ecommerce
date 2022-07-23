@@ -6,3 +6,4 @@
 - Tailwindcss
 - @types/react
 - @heroicons/react
+- react-hook-form

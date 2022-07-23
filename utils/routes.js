@@ -4,4 +4,5 @@ export const routes = {
 	login: '/login',
 	product: '/product',
 	shipping: '/shipping',
+	register: '/register',
 };
